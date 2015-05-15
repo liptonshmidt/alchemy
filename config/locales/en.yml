@@ -17,3 +17,7 @@ en:
 
   titles:
     application: Alchemy
+
+  materials:
+    index:
+      no_materials: You have no materials to practice
