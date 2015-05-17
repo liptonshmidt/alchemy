@@ -18,6 +18,13 @@ en:
   titles:
     application: Alchemy
 
+  helpers:
+    submit:
+      material:
+        create:
+          Practice it!
+
   materials:
     index:
       no_materials: You have no materials to practice
+      add_new: Add material
