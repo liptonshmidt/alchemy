@@ -8,8 +8,11 @@ class MaterialsController < ApplicationController
 
   def create
     @material = Material.new(material_params)
-    @material.save!
-    redirect_to @material
+    if @material.save
+      redirect_to @material
+    else
+      render :new
+    end
   end
 
   def show
