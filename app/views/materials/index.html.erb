@@ -1,4 +1,9 @@
 <div>
-  <%= t("materials.index.no_materials") %>
+  <% if @materials.empty? %>
+    <%= t("materials.index.no_materials") %>
+  <% else %>
+    <%= render @materials %>
+  <% end %>
+
   <%= link_to t("materials.index.add_new"), new_material_path %>
 </div>

@@ -36,3 +36,16 @@ describe MaterialsController, "#create" do
     post :create, material: material_params
   end
 end
+
+
+describe MaterialsController, "#index" do
+  it "shows materials" do
+    materials = double("materials")
+    allow(Material).to receive(:all).and_return(materials)
+
+    get :index
+
+    expect(assigns(:materials)).to eq(materials)
+    expect(response).to be_success
+  end
+end
