@@ -3,7 +3,7 @@ require 'rails_helper'
 describe MaterialsController, "#create" do
   context "signed in with valid material" do
     it "creates material" do
-      material = stub_material(save: true)
+      material = stub_material
 
       sign_in
       post_create
@@ -26,7 +26,7 @@ describe MaterialsController, "#create" do
 
   context "signed out with valid material" do
     it "redirects to sign in form" do
-      material = stub_material(save: true)
+      material = stub_material
 
       sign_out
       post_create
@@ -37,7 +37,7 @@ describe MaterialsController, "#create" do
 
   let(:material_params) { attributes_for(:material) }
 
-  def stub_material(save:)
+  def stub_material(save: true)
     build_stubbed(:material).tap do |material|
       allow(Material).to receive(:new).with(material_params).
         and_return(material)
