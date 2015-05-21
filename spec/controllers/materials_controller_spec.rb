@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 describe MaterialsController, "#create" do
-  context "with valid material" do
+  context "signed in with valid material" do
     it "creates material" do
       material = stub_material(save: true)
 
+      sign_in
       post_create
 
       expect(material).to have_received(:save)
@@ -12,13 +13,25 @@ describe MaterialsController, "#create" do
     end
   end
 
-  context "with invalid material" do
+  context "signed in with invalid material" do
     it "re-renders the form" do
       material = stub_material(save: false)
 
+      sign_in
       post_create
 
       expect(controller).to render_template(:new)
+    end
+  end
+
+  context "signed out with valid material" do
+    it "redirects to sign in form" do
+      material = stub_material(save: true)
+
+      sign_out
+      post_create
+
+      expect(controller).to redirect_to(sign_in_path)
     end
   end
 
@@ -43,6 +56,7 @@ describe MaterialsController, "#index" do
     materials = double("materials")
     allow(Material).to receive(:all).and_return(materials)
 
+    sign_in
     get :index
 
     expect(assigns(:materials)).to eq(materials)

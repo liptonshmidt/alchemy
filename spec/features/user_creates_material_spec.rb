@@ -12,7 +12,7 @@ feature "user creates material" do
   end
 
   def submit_material(title:)
-    visit root_path
+    visit root_path(as: create(:user))
     click_on t("materials.index.add_new")
     fill_in "Title", with: title
     click_on t("helpers.submit.material.create")
