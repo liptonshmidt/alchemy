@@ -52,14 +52,20 @@ end
 
 
 describe MaterialsController, "#index" do
-  it "shows materials" do
+  it "lists current user's materials" do
     materials = double("materials")
-    allow(Material).to receive(:all).and_return(materials)
+    user = stub_user(materials)
 
-    sign_in
+    sign_in_as(user)
     get :index
 
     expect(assigns(:materials)).to eq(materials)
     expect(response).to be_success
+  end
+
+  def stub_user(materials)
+    build_stubbed(:user).tap do |user|
+      allow(user).to receive(:materials).and_return(materials)
+    end
   end
 end
