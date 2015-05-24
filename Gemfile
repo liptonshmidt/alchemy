@@ -45,6 +45,7 @@ end
 
 group :test do
   gem "capybara-webkit", ">= 1.2.0"
+  gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
@@ -56,5 +57,4 @@ end
 
 group :staging, :production do
   gem "rack-timeout"
-  gem "codeclimate-test-reporter", group: :test, require: nil
 end

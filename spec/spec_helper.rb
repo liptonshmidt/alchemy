@@ -1,12 +1,18 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+require "webmock/rspec"
+
+if ENV["RAILS_ENV"] == "test" && ENV['CODECLIMATE_REPO_TOKEN']
+  WebMock.disable_net_connect!(:allow => "codeclimate.com")
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
+else
+  WebMock.disable_net_connect!(allow_localhost: true)
+end
+
 
 if ENV.fetch("COVERAGE", false)
   require "simplecov"
   SimpleCov.start "rails"
 end
-
-require "webmock/rspec"
 
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -21,5 +27,3 @@ RSpec.configure do |config|
 
   config.order = :random
 end
-
-WebMock.disable_net_connect!(allow_localhost: true)
