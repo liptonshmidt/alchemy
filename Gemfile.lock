@@ -70,6 +70,8 @@ GEM
       bcrypt
       email_validator (~> 1.4)
       rails (>= 3.1)
+    codeclimate-test-reporter (0.4.7)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -279,6 +281,7 @@ DEPENDENCIES
   byebug
   capybara-webkit (>= 1.2.0)
   clearance
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
   delayed_job_active_record

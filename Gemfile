@@ -56,4 +56,5 @@ end
 
 group :staging, :production do
   gem "rack-timeout"
+  gem "codeclimate-test-reporter", group: :test, require: nil
 end
