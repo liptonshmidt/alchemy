@@ -69,3 +69,31 @@ describe MaterialsController, "#index" do
     end
   end
 end
+
+describe MaterialsController, "#show" do
+  let(:user) { build_stubbed(:user) }
+  let(:material) { build_stubbed(:material, user: user) }
+
+  it "assigns a material" do
+    stub_material_search
+
+    sign_in_as(user)
+    get :show, id: material
+
+    expect(assigns(:material)).to eq(material)
+  end
+
+  it "renders the 'show' template" do
+    stub_material_search
+
+    sign_in_as(user)
+    get :show, id: material
+
+    expect(controller).to render_template(:show)
+    expect(response).to be_success
+  end
+
+  def stub_material_search
+    allow(user).to receive(:find_material).and_return(material)
+  end
+end

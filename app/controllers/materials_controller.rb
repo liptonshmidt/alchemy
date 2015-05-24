@@ -10,7 +10,7 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    @material = Material.new(material_params)
+    @material = current_user.materials.new(material_params)
     if @material.save
       redirect_to @material
     else
@@ -19,7 +19,7 @@ class MaterialsController < ApplicationController
   end
 
   def show
-    @material = Material.find(params[:id])
+    @material = current_user.find_material(params[:id])
   end
 
   private
