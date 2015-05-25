@@ -28,3 +28,5 @@ en:
     index:
       no_materials: You have no materials to practice
       add_new: Add material
+    show:
+      show_all: All materials
