@@ -14,6 +14,19 @@ describe "materials/index.html.erb" do
       expect(rendered).to match "first"
       expect(rendered).to match "second"
     end
+
+    context "when material was practiced at least once" do
+      it "shows practices count" do
+        assign(:materials, [build_stubbed(:material, practices_count: 3)])
+
+        render
+
+        expect(rendered).to match(
+          t("materials.index.practices_count", practices_count: 3)
+        )
+      end
+    end
+
   end
 
   context "when no materials given" do
