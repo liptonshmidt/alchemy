@@ -53,11 +53,7 @@ describe Material::PracticesController, "#create" do
 
   def stub_material_for_user(user)
     build_stubbed(:material, user: user).tap do |material|
-      stub_material_search(user: user, material: material)
+      stub_material_search(material)
     end
-  end
-
-  def stub_material_search(user:, material:)
-    allow(user).to receive(:find_material).and_return(material)
   end
 end
