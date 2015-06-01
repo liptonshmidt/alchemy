@@ -1,4 +1,4 @@
-<div>
+<div class="row">
   <% if @materials.empty? %>
     <%= t("materials.index.no_materials") %>
   <% else %>
@@ -7,5 +7,7 @@
 
   <br>
 
-  <%= link_to t("materials.index.add_new"), new_material_path %>
+  <%= link_to t("materials.index.add_new"), new_material_path,
+    :class => "button"
+  %>
 </div>
