@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="ROBOTS" content="NOODP" />
-  <meta name="viewport" content="initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%#
     Configure default and controller-, and view-specific titles in
     config/locales/en.yml. For more see:
@@ -11,6 +11,8 @@
   %>
   <title><%= title %></title>
   <%= stylesheet_link_tag :application, media: "all" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">

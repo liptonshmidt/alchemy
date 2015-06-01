@@ -1,10 +1,8 @@
-<div>
+<div class="panel">
   <%= link_to material.title, material %>
   <%= link_to t("materials.index.mark_practiced"), [material, :practices],
       method: :post %>
-  <div>
     <%= t("materials.index.practices_count",
         practices_count: material.practices_count)
     %>
-  </div>
 </div>
