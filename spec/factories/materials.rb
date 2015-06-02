@@ -1,7 +1,10 @@
 FactoryGirl.define do
-  factory :material do
-    user
-    title "MyString"
+  sequence :title do |n|
+    "title #{n}"
   end
 
+  factory :material do
+    user
+    title
+  end
 end
