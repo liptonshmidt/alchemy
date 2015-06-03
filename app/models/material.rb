@@ -6,4 +6,7 @@ class Material < ActiveRecord::Base
   def practice
     increment!(:practices_count)
   end
+
+  def complete
+  end
 end
