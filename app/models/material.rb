@@ -8,5 +8,6 @@ class Material < ActiveRecord::Base
   end
 
   def complete
+    update_attributes(completed: true)
   end
 end
