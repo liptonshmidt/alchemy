@@ -10,4 +10,11 @@
   <%= link_to t("materials.index.add_new"), new_material_path,
     :class => "button"
   %>
+
+  <br>
+
+  <div class="completed-materials">
+    <p>Completed materials</p>
+    <%= render @completed_materials %>
+  </div>
 </div>

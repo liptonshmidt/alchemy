@@ -54,6 +54,7 @@ end
 describe MaterialsController, "#index" do
   it "lists current user's materials" do
     materials = double("materials")
+    allow(materials).to receive(:where).and_return(materials)
     user = stub_user(materials)
 
     sign_in_as(user)

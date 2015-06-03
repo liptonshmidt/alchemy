@@ -9,6 +9,8 @@ describe "materials/index.html.erb" do
         build_stubbed(:material, title: "second"),
       ])
 
+      assign(:completed_materials, [])
+
       render
 
       expect(rendered).to match "first"
@@ -18,6 +20,7 @@ describe "materials/index.html.erb" do
     context "when material was practiced at least once" do
       it "shows practices count" do
         assign(:materials, [build_stubbed(:material, practices_count: 3)])
+        assign(:completed_materials, [])
 
         render
 
@@ -32,6 +35,7 @@ describe "materials/index.html.erb" do
   context "when no materials given" do
     it "displays no-materials special text" do
       assign(:materials, [])
+      assign(:completed_materials, [])
 
       render
 
