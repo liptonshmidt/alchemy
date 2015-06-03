@@ -34,6 +34,6 @@ describe Material::CompletionsController, "#create" do
     sign_in_as(user)
     post :create, material_id: material.id
 
-    expect(controller).to redirect_to(:materials_path)
+    expect(controller).to redirect_to(materials_path)
   end
 end
