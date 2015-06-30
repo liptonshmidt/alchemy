@@ -13,4 +13,15 @@ describe Material do
       end.to change { material.reload.practices_count }.by(1)
     end
   end
+
+  describe "#complete" do
+    it "should set :completed to true" do
+      material = create(:material, completed: false)
+
+      material.complete
+
+      material.reload
+      expect(material.completed).to be_truthy
+    end
+  end
 end

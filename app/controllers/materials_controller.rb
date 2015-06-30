@@ -1,10 +1,6 @@
 class MaterialsController < ApplicationController
   before_action :require_login
 
-  def index
-    @materials = current_user.materials
-  end
-
   def new
     @material = Material.new
   end

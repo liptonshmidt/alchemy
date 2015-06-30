@@ -1,9 +1,9 @@
-class Material::PracticesController < ApplicationController
+class Material::CompletionsController < ApplicationController
   before_action :require_login
   before_action :find_material
 
   def create
-    @material.practice
+    @material.complete
     redirect_to practice_path
   end
 
