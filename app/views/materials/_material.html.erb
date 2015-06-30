@@ -1,7 +1,7 @@
 <div class="panel inline-list">
   <%= link_to material.title, material %>
 
-  <%= t("materials.index.practices_count",
+  <%= t("practice.show.practices_count",
       practices_count: material.practices_count)
   %>
 
@@ -10,7 +10,7 @@
       method: :post, :class => "button tiny secondary"
     %>
 
-    <%= link_to t("materials.index.mark_practiced"), [material, :practices],
+    <%= link_to t("practice.show.mark_practiced"), [material, :practices],
       method: :post, :class => "button tiny success"
     %>
   </ul>

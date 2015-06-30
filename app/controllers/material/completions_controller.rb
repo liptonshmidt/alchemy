@@ -4,7 +4,7 @@ class Material::CompletionsController < ApplicationController
 
   def create
     @material.complete
-    redirect_to materials_path
+    redirect_to practice_path
   end
 
   private

@@ -24,7 +24,7 @@ describe Material::PracticesController, "#create" do
       expect(material).to have_received(:practice)
     end
 
-    it "redirects to material_path" do
+    it "redirects to practice_path" do
       user = build_stubbed(:user)
       material = stub_material_for_user(user)
       allow(material).to receive(:practice)
@@ -32,7 +32,7 @@ describe Material::PracticesController, "#create" do
       sign_in_as(user)
       post_create(material)
 
-      expect(controller).to redirect_to(materials_path)
+      expect(controller).to redirect_to(practice_path)
     end
   end
 

@@ -25,7 +25,7 @@ describe Material::CompletionsController, "#create" do
     expect(material).to have_received(:complete)
   end
 
-  it "redirects to materials_path" do
+  it "redirects to practice_path" do
     user = build_stubbed(:user)
     material = build_stubbed(:material)
     stub_material_search(material, user)
@@ -34,6 +34,6 @@ describe Material::CompletionsController, "#create" do
     sign_in_as(user)
     post :create, material_id: material.id
 
-    expect(controller).to redirect_to(materials_path)
+    expect(controller).to redirect_to(practice_path)
   end
 end

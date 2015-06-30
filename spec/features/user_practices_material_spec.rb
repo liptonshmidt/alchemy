@@ -5,11 +5,11 @@ feature "user practices material" do
     user = create(:user)
     material = create(:material, user: user)
 
-    visit materials_path(as: user)
-    click_on t("materials.index.mark_practiced")
+    visit practice_path(as: user)
+    click_on t("practice.show.mark_practiced")
 
     expect(page).to have_content(
-      t("materials.index.practices_count", practices_count: 1)
+      t("practice.show.practices_count", practices_count: 1)
     )
   end
 end

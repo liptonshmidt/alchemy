@@ -1,11 +1,6 @@
 class MaterialsController < ApplicationController
   before_action :require_login
 
-  def index
-    @materials = current_user.materials.where(completed: false)
-    @completed_materials = current_user.materials.where(completed: true)
-  end
-
   def new
     @material = Material.new
   end

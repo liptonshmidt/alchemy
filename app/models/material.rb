@@ -3,6 +3,9 @@ class Material < ActiveRecord::Base
 
   validates :title, presence: true
 
+  scope :completed, ->{ where(completed: true) }
+  scope :incompleted, ->{ where(completed: false) }
+
   def practice
     increment!(:practices_count)
   end

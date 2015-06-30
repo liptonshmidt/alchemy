@@ -50,27 +50,6 @@ describe MaterialsController, "#create" do
   end
 end
 
-
-describe MaterialsController, "#index" do
-  it "lists current user's materials" do
-    materials = double("materials")
-    allow(materials).to receive(:where).and_return(materials)
-    user = stub_user(materials)
-
-    sign_in_as(user)
-    get :index
-
-    expect(assigns(:materials)).to eq(materials)
-    expect(response).to be_success
-  end
-
-  def stub_user(materials)
-    build_stubbed(:user).tap do |user|
-      allow(user).to receive(:materials).and_return(materials)
-    end
-  end
-end
-
 describe MaterialsController, "#show" do
   let(:user) { build_stubbed(:user) }
   let(:material) { build_stubbed(:material, user: user) }
