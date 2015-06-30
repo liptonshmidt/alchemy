@@ -13,13 +13,13 @@ gem "flutie"
 gem 'foundation-rails'
 gem "high_voltage"
 gem "i18n-tasks"
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.0.4"
 gem "neat", "~> 1.7.0"
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
 gem "rack-canonical-host"
-gem "rails", "4.2.1"
+gem "rails", "4.2.2"
 gem "recipient_interceptor"
 gem "refills"
 gem "sass-rails", "~> 5.0"
@@ -31,7 +31,7 @@ gem "unicorn"
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
-  gem "web-console"
+  gem "web-console", ">= 2.1.3"
 end
 
 group :development, :test do
