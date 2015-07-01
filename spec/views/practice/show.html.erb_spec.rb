@@ -4,16 +4,14 @@ describe "practice/show.html.erb" do
 
   context "when materials exist" do
     it "displays both incompleted and completed materials" do
-      practice = double(:practice)
-      allow(practice).to receive(:completed_materials).
-        and_return([build_stubbed(:material, title: "first")])
-      allow(practice).to receive(:incompleted_materials).
-        and_return([build_stubbed(:material, title: "second")])
+      practice = stub_practice(
+        completed: [build_stubbed(:material, title: "first")],
+        incompleted: [build_stubbed(:material, title: "second")] )
       assign(:practice, practice)
 
       render
 
-      expect(rendered).to match "Completed materials"
+      expect(rendered).to match t("practice.show.completed_materials")
       expect(rendered).to match "first"
       expect(rendered).to match "second"
     end
@@ -21,22 +19,18 @@ describe "practice/show.html.erb" do
 
   context "when no materials are completed yet" do
     it "doesn't display completed materials section" do
-      practice = double(:practice)
-      allow(practice).to receive(:completed_materials).and_return([])
-      allow(practice).to receive(:incompleted_materials).and_return([])
+      practice = stub_practice(completed: [])
       assign(:practice, practice)
 
       render
 
-      expect(rendered).not_to match "Completed materials"
+      expect(rendered).not_to match t("practice.show.completed_materials")
     end
   end
 
-  context "when no materials given" do
+  context "when no active materials given" do
     it "displays no-materials special text" do
-      practice = double(:practice)
-      allow(practice).to receive(:completed_materials).and_return([])
-      allow(practice).to receive(:incompleted_materials).and_return([])
+      practice = stub_practice(incompleted: [])
       assign(:practice, practice)
 
       render
@@ -44,5 +38,11 @@ describe "practice/show.html.erb" do
       expect(rendered).to match t("practice.show.no_materials")
     end
   end
-end
 
+  def stub_practice(completed: [], incompleted: [])
+    double(:practice).tap do |practice|
+      allow(practice).to receive(:completed_materials).and_return(completed)
+      allow(practice).to receive(:incompleted_materials).and_return(incompleted)
+    end
+  end
+end
