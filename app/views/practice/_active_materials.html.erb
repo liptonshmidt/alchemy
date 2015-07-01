@@ -1,6 +1,8 @@
-<div class="active_materials">
+<div class="active-materials">
   <% if materials.empty? %>
-    <%= t("practice.show.no_materials") %>
+    <div class="panel">
+      <%= t("practice.show.no_materials") %>
+    </div>
   <% else %>
     <%= render materials %>
   <% end %>

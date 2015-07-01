@@ -1,8 +1,6 @@
-<div class="completed_materials">
+<div class="completed-materials">
   <% unless materials.empty? %>
-    <div class="completed-materials">
-      <p> <%= t("practice.show.completed_materials") %> </p>
-      <%= render materials %>
-    </div>
+    <p> <%= t("practice.show.completed_materials") %> </p>
+    <%= render materials %>
   <% end %>
 </div>
