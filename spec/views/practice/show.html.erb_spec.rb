@@ -13,8 +13,22 @@ describe "practice/show.html.erb" do
 
       render
 
+      expect(rendered).to match "Completed materials"
       expect(rendered).to match "first"
       expect(rendered).to match "second"
+    end
+  end
+
+  context "when no materials are completed yet" do
+    it "doesn't display completed materials section" do
+      practice = double(:practice)
+      allow(practice).to receive(:completed_materials).and_return([])
+      allow(practice).to receive(:incompleted_materials).and_return([])
+      assign(:practice, practice)
+
+      render
+
+      expect(rendered).not_to match "Completed materials"
     end
   end
 

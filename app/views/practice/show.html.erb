@@ -1,20 +1,13 @@
 <div class="row">
-  <% if @practice.incompleted_materials.empty? %>
-    <%= t("practice.show.no_materials") %>
-  <% else %>
-    <%= render @practice.incompleted_materials %>
-  <% end %>
-
-  <br>
+  <%= render partial: "active_materials",
+    locals: {materials: @practice.incompleted_materials}
+  %>
 
   <%= link_to t("practice.show.add_new"), new_material_path,
     :class => "button"
   %>
 
-  <br>
-
-  <div class="completed-materials">
-    <p>Completed materials</p>
-    <%= render @practice.completed_materials %>
-  </div>
+  <%= render partial: "completed_materials",
+    locals: {materials: @practice.completed_materials}
+  %>
 </div>

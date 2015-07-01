@@ -1,0 +1,7 @@
+<div class="active_materials">
+  <% if materials.empty? %>
+    <%= t("practice.show.no_materials") %>
+  <% else %>
+    <%= render materials %>
+  <% end %>
+</div>
