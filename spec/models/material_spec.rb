@@ -24,4 +24,15 @@ describe Material do
       expect(material.completed).to be_truthy
     end
   end
+
+  describe "#make_active" do
+    it "should set :completed to false" do
+      material = create(:material, completed: true)
+
+      material.make_active
+
+      material.reload
+      expect(material.completed).to be_falsey
+    end
+  end
 end

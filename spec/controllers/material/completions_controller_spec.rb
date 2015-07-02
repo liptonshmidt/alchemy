@@ -37,3 +37,29 @@ describe Material::CompletionsController, "#create" do
     expect(controller).to redirect_to(practice_path)
   end
 end
+
+describe Material::CompletionsController, "#destroy" do
+  it "sends :make_active to material" do
+    user = build_stubbed(:user)
+    material = build_stubbed(:material, completed: false)
+    stub_material_search(material, user)
+    allow(material).to receive(:make_active)
+
+    sign_in_as(user)
+    delete :destroy, material_id: material.id
+
+    expect(material).to have_received(:make_active)
+  end
+
+  it "redirects to practice_path" do
+    user = build_stubbed(:user)
+    material = build_stubbed(:material, completed: false)
+    stub_material_search(material, user)
+    allow(material).to receive(:make_active)
+
+    sign_in_as(user)
+    delete :destroy, material_id: material.id
+
+    expect(controller).to redirect_to(practice_path)
+  end
+end

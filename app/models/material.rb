@@ -13,4 +13,8 @@ class Material < ActiveRecord::Base
   def complete
     update_attributes(completed: true)
   end
+
+  def make_active
+    update_attributes(completed: false)
+  end
 end

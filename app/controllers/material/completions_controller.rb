@@ -7,6 +7,11 @@ class Material::CompletionsController < ApplicationController
     redirect_to practice_path
   end
 
+  def destroy
+    @material.make_active
+    redirect_to practice_path
+  end
+
   private
 
   def find_material

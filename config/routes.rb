@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :materials, only: [:new, :create, :show] do
     resources :practices, only: [:create], module: :material
-    resources :completions, only: [:create], module: :material
+    resource :completion, only: [:create, :destroy], module: :material
   end
 end
