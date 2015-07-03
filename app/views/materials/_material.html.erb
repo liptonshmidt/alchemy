@@ -7,11 +7,11 @@
 
   <ul class="right button-group radius">
     <% if material.completed? %>
-      <%= link_to "Make active", [material, :completion],
+      <%= link_to t("materials.actions.make_active"), [material, :completion],
         method: :delete, :class => "button tiny secondary"
       %>
     <% else %>
-      <%= link_to "Mark completed", [material, :completion],
+      <%= link_to t("materials.actions.mark_completed"), [material, :completion],
         method: :post, :class => "button tiny secondary"
       %>
     <% end %>

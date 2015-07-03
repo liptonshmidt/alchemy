@@ -6,7 +6,7 @@ feature "user transits completed item  to active" do
     completed_material = create(:material, user: user, completed: true)
 
     visit practice_path(as: user)
-    click_on "Make active"
+    click_on t("materials.actions.make_active")
 
     within ".active-materials" do
       expect(page).to have_content completed_material.title

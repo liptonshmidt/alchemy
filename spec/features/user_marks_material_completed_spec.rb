@@ -6,7 +6,7 @@ feature "user marks material completed" do
     material_to_complete = create(:material, user: user)
 
     visit practice_path(as: user)
-    click_on "Mark completed"
+    click_on t("materials.actions.mark_completed")
 
     within ".completed-materials" do
       expect(page).to have_content "Completed materials"

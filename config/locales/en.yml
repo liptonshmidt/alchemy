@@ -31,6 +31,10 @@ en:
       mark_practiced: Tried it
       practices_count: Practiced %{practices_count} times
       completed_materials: Completed materials
+
   materials:
     show:
       show_all: All materials
+    actions:
+      mark_completed: Mark completed
+      make_active: Make active
