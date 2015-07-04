@@ -3,9 +3,7 @@
     locals: {materials: @practice.incompleted_materials}
   %>
 
-  <%= link_to t("practice.show.add_new"), new_material_path,
-    :class => "button"
-  %>
+  <%= link_to t("practice.show.add_new"), new_material_path, class: "button" %>
 
   <%= render partial: "completed_materials",
     locals: {materials: @practice.completed_materials}

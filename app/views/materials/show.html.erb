@@ -1,3 +1,4 @@
-<%= @material.title %>
-<br>
-<%= link_to t("materials.show.show_all"), practice_path %>
+<div class="row">
+  <%= render @material %>
+  <%= link_to t("materials.show.show_all"), practice_path, class: :button %>
+</div>

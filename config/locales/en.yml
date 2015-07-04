@@ -1,40 +1,53 @@
 en:
+  clearance_mailer:
+    change_password:
+      closing: Closing
+      link_text: Change my password 
+      opening: Opening
   date:
     formats:
-      default:
-        "%m/%d/%Y"
-      with_weekday:
-        "%a %m/%d/%y"
-
-  time:
-    formats:
-      default:
-        "%a, %b %-d, %Y at %r"
-      date:
-        "%b %-d, %Y"
-      short:
-        "%B %d"
-
-  titles:
-    application: Alchemy
-
+      default: "%m/%d/%Y"
+      with_weekday: "%a %m/%d/%y"
   helpers:
     submit:
       material:
-        create:
-          Practice it!
-
-  practice:
-    show:
-      no_materials: You have no materials to practice
-      add_new: Add material
-      mark_practiced: Tried it
-      practices_count: Practiced %{practices_count} times
-      completed_materials: Completed materials
-
+        create: Practice it!
   materials:
+    actions:
+      make_active: Make active
+      mark_completed: Mark completed
     show:
       show_all: All materials
-    actions:
-      mark_completed: Mark completed
-      make_active: Make active
+  passwords:
+    create:
+      description: Description
+    edit:
+      description: Description
+      title: Change password
+    new:
+      description: ""
+      title: Restore password
+  practice:
+    show:
+      add_new: Add material
+      completed_materials: Completed materials
+      mark_practiced: Tried it
+      no_materials: You have no materials to practice
+      practices_count: Practiced %{practices_count} times
+  sessions:
+    form:
+      forgot_password: Forgot password?
+      sign_up: Sign up
+    new:
+      title: Sign in
+  time:
+    formats:
+      date: "%b %-d, %Y"
+      default: "%a, %b %-d, %Y at %r"
+      short: "%B %d"
+  titles:
+    application: Alchemy
+  users:
+    new:
+      sign_in: Sign in
+      title: Sign up
